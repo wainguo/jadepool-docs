@@ -97,7 +97,7 @@ $ ./xmr-stak
 ```
 - Username (wallet address or pool login):
 ```
-这里输入您的门罗钱包地址：45M3yC2WxL99gQ22QRzN26c5NBV8b3cq3aJoyMDZQuGbQT38NytuKdV2uX7M4CEYXAYHUj51GdyEDFPy7SntP6gRLDvK1aN
+这里输入门罗钱包地址（请替换为您的门罗钱包地址）：45M3yC2WxL99gQ22QRzN26c5NBV8b3cq3aJoyMDZQuGbQT38NytuKdV2uX7M4CEYXAYHUj51GdyEDFPy7SntP6gRLDvK1aN
 ```
 - Password (mostly empty or x):
 ```
@@ -114,6 +114,7 @@ $ ./xmr-stak
 - Do you want to use multiple pools? (y/n)
 ```
 是否使用多路矿池，这里输入：n
+
 然后会自动生成配置文件，并启动,可看到类似下面的日志打印
 ```
 Configuration stored in file 'config.txt'
@@ -153,24 +154,26 @@ You can use following keys to display reports:
 [2018-01-31 19:20:29] : Difficulty changed. Now: 5000.
 [2018-01-31 19:20:29] : Pool logged in.
 ```
-表示首次运行成功，按Ctrl+C退出运行。
-可以看到首次运行，已经在bin文件所在目录下自动生成了配置文件`config.txt`和`cpu.txt`（如果支持GPU，还会生成'gpu.txt'文件）
-编辑config.txt，以后background运行，修改其中的配置`daemon_mode`的值改为true，
+按Ctrl+C退出运行。
+
+可以看到首次运行已经在bin文件所在目录下自动生成了配置文件`config.txt`和`cpu.txt`（如果支持GPU，还会生成'gpu.txt'文件）
+编辑config.txt，修改其中的配置`daemon_mode`的值改为true，这样以后启动会background后台运行
 ```
 "daemon_mode" : true,
 ```
 
-Miner提供了内置的web服务，可以监控Miner的运行状态，默认该web服务是关闭的，如果想要启用可以修改`config.txt`中的`httpd_port`，默认`httpd_port`值为0，表示关闭web服务，如果启用可以配置为非0端口号，例如：
+此外Miner提供了内置的web服务，可以监控Miner的运行状态，默认该web服务是关闭的，如果想要启用可以修改`config.txt`中的`httpd_port`，默认`httpd_port`值为0，表示关闭web服务，如果启用可以配置为非0端口号，例如：
 ```
 "httpd_port" : 3128,
 "http_login" : "myname",
 "http_pass" : "mypassword",
 ```
-其中`http_login`和`http_pass`为访问该web服务的用户名和密码，可根据需要修改，`http_login`留空可禁用登录鉴权。
+其中`http_login`和`http_pass`为访问该web服务的用户名和密码，可根据需要修改，`http_login`留空可禁用登录鉴权功能。
 
 ## 配置修改
 ### 基于CPU的配置 
 
+编辑`cpu.txt`文件，修改`low_power_mode`对应的值true，利用cpu缓存提升挖矿效率，同时还可以节能。根据服务器cpu核心数量，修改启动的Miner线程数，比如8核cpu的配置如下（注意编号从0开始，8核最大编号为7）：
 ```
 "cpu_threads_conf" :
  [
