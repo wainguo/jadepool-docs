@@ -1,6 +1,6 @@
-# 编译安装 **xmr-stak** for Linux
+# 门罗币Miner编译安装：**xmr-stak** for Linux
 
-## 1.安装依赖（如果仅需要支持CPU挖矿，可略过这一步，直接跳到"2.编译"）
+## 1.安装依赖（仅需要支持CPU挖矿，可略过这一步，直接跳到"2.编译"）
 
 ### AMD APP SDK 3.0 安装(AMD GPUs)
 
@@ -22,7 +22,7 @@
 * CentOS环境
 ```
     sudo yum install centos-release-scl epel-release
-    sudo yum install cmake3 devtoolset-4-gcc* hwloc-devel libmicrohttpd-devel openssl-devel make
+    sudo yum install git cmake3 devtoolset-4-gcc* hwloc-devel libmicrohttpd-devel openssl-devel make
     scl enable devtoolset-4 bash
     git clone https://github.com/fireice-uk/xmr-stak.git
     mkdir xmr-stak/build
@@ -79,7 +79,7 @@
 ```
 
 
-## 运行minner
+## 3.运行minner
 ### 首次运行
 ```
 $ cd bin/
@@ -170,7 +170,7 @@ You can use following keys to display reports:
 ```
 其中`http_login`和`http_pass`为访问该web服务的用户名和密码，可根据需要修改，`http_login`留空可禁用登录鉴权功能。
 
-## 配置修改
+## 4.配置修改
 ### 基于CPU的配置 
 
 编辑`cpu.txt`文件，修改`low_power_mode`对应的值true，利用cpu缓存提升挖矿效率，同时还可以节能。根据服务器cpu核心数量，修改启动的Miner线程数，比如8核cpu的配置如下（注意编号从0开始，8核最大编号为7）：
@@ -188,7 +188,7 @@ You can use following keys to display reports:
  ],
 ```
 
-## 常见问题
+## 5.常见问题
 ## 运行提示错误"Error: MEMORY ALLOC FAILED: mmap failed"
 
 在Linux下需要开启大页存取支持 
