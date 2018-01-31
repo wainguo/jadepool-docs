@@ -1,4 +1,4 @@
-# 门罗币Miner编译安装：**xmr-stak** for Linux
+# 门罗币Miner：**xmr-stak** for Linux
 
 ## 1.安装依赖（仅需要支持CPU挖矿，可略过这一步，直接跳到"2.编译"）
 
@@ -79,7 +79,7 @@
 ```
 
 
-## 3.运行minner
+## 3.运行
 ### 首次运行
 ```
 $ cd bin/
