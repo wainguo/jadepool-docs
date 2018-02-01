@@ -173,6 +173,9 @@ You can use following keys to display reports:
 ## 4.配置修改
 ### 基于CPU的配置 
 
+首次运行，xmr-stak会自动探测并设置cpu线程数，这个文件默认可以不用修改。
+
+如果希望调试相关参数对算力的影响可以尝试修改下面的参数：
 编辑`cpu.txt`文件，修改`low_power_mode`对应的值true，利用cpu缓存提升挖矿效率，同时还可以节能。根据服务器cpu核心数量，修改启动的Miner线程数，比如8核cpu的配置如下（注意编号从0开始，8核最大编号为7）：
 ```
 "cpu_threads_conf" :
